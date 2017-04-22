@@ -22,7 +22,7 @@ Or
 == Usage
 
 See Wiki on Github
-https://github.com/nov/paypal-express/wiki
+https://github.com/ianfleeton/paypal-express/wiki
 
 Play with Sample Rails App
 https://github.com/nov/paypal-express-sample
