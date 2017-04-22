@@ -97,6 +97,17 @@ describe Paypal::NVP::Request do
       end
     end
 
+    context 'when API error response received from RefundTransaction' do
+      before { fake_response 'RefundTransaction/failure' }
+
+      it 'should handle all attributes while raising an API error' do
+        expect(Paypal.logger).not_to receive(:warn)
+        expect do
+          instance.request :Refund, TRANSACTIONID: 'already-refunded'
+        end.to raise_error(Paypal::Exception::APIError)
+      end
+    end
+
     context 'when got HTTP error response' do
       before do
         stub_request(:post, Paypal::NVP::Request::ENDPOINT[:production])

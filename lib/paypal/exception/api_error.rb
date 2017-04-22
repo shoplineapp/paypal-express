@@ -32,7 +32,8 @@ module Paypal
           :PAYMENTSTATUS => :payment_status,
           :PAYMENTTYPE => :payment_type,
           :REASONCODE => :reason_code,
-          :TRANSACTIONTYPE => :transaction_type
+          :TRANSACTIONTYPE => :transaction_type,
+          REFUNDSTATUS: :refund_status
         }
         attr_accessor *@@attribute_mapping.values
         attr_accessor :raw, :details

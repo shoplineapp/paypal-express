@@ -88,6 +88,14 @@ describe Paypal::Exception::APIError do
     end
   end
 
+  context 'when refund failure params given' do
+    let(:params) { { REFUNDSTATUS: 'None' } }
+    describe 'error.response.refund_status' do
+      subject { error.response.refund_status }
+      it { should eq 'None' }
+    end
+  end
+
   context 'otherwise' do
     subject { error }
     let(:params) { 'Failure' }
